@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+}
+
+$color-primary: #FBBF24;
+$color-primary-dark: #F59E0B;
+$color-secondary: #1E3A8A;
+$color-secondary-light: #3B82F6;
+$color-white: #FFFFFF;
+$color-bg: #F3F4F6;
+$color-text: #1F2937;
+$color-muted: #6B7280;
+$color-danger: #DC2626;
+$color-success: #16A34A;
+$color-warning: #D97706;
+$radius-md: 12px;
+$radius-lg: 18px;
+$shadow-soft: 0 10px 30px rgba(30, 58, 138, 0.15);
+$font-main: 'Poppins', sans-serif;

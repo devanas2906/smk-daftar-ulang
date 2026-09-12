@@ -1,0 +1,112 @@
+@use "./_variabels.scss" as v;
+@use "./_mixin.scss" as m;
+
+.auth-component-background {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, v.$color-secondary 0%, v.$color-secondary-light 100%);
+    font-family: v.$font-main;
+    padding: 20px;
+
+    .auth-component-content {
+        background: v.$color-white;
+        border-radius: v.$radius-lg;
+        box-shadow: v.$shadow-soft;
+        padding: 40px 36px;
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+
+        &.auth-component-content-wide {
+            max-width: 1000px;
+        }
+
+        .auth-component-brand {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, v.$color-primary, v.$color-primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: v.$color-secondary;
+            font-size: 28px;
+        }
+
+        .auth-component-title {
+            font-size: 20px;
+            color: v.$color-secondary;
+            margin-bottom: 4px;
+        }
+
+        .auth-component-subtitle {
+            color: v.$color-muted;
+            font-size: 13px;
+            margin-bottom: 1.3rem;
+        }
+    }
+}
+
+// auth component form
+.auth-component-form {
+    text-align: left;
+
+    .auth-component-input-group {
+        position: relative;
+        margin-bottom: 1.1rem;
+
+        .auth-component-input-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: v.$color-text;
+            margin-bottom: 7px;
+        }
+
+        i {
+            position: absolute;
+            top: 60%;
+            translate: -50%;
+            left: 23px;
+            font-size: 0.85rem;
+        }
+
+        .auth-component-input {
+            width: 100%;
+            padding: 12px 14px 12px 40px;
+            border: 1.5px solid v.$color-muted;
+            border-radius: v.$radius-md;
+            font-family: v.$font-main;
+            font-size: 12.5px;
+            transition: border-color 0.2s;
+
+            &:focus {
+                outline: none;
+                border-color: v.$color-secondary-light;
+            }
+        }
+    }
+
+    .auth-component-submit-button {
+        width: 100%;
+        padding: 13px;
+        border: none;
+        border-radius: v.$radius-md;
+        background: linear-gradient(135deg, v.$color-primary, v.$color-primary-dark);
+        color: v.$color-secondary;
+        font-family: v.$font-main;
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        transition: transform 0.15s;
+        @include m.applyLoadingAnimationConfig(v.$color-secondary, v.$color-primary);
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+}

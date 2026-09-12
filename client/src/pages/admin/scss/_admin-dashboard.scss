@@ -1,0 +1,310 @@
+@use '../../../common/scss/_variabels.scss' as v;
+@use '../../../common/scss/_mixin.scss' as m;
+
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+
+  .admin-dashboard-sidebar {
+    max-width: 300px;
+    background: v.$color-secondary;
+    color: v.$color-white;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+
+    .admin-dashboard-sidebar-title {
+      margin-bottom: 25px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .admin-dashboard-sidebar-item-container {
+      flex: 1;
+      overflow-y: auto;
+
+      .admin-dashboard-sidebar-item-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .admin-dashboard-sidebar-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 11px 14px;
+          border-radius: v.$radius-md;
+          color: rgba(255, 255, 255, 0.85);
+          cursor: pointer;
+          font-size: 13.5px;
+          transition: background 0.2s;
+
+          i {
+            width: 18px;
+            text-align: center;
+          }
+
+          &:hover,
+          &.sidebar-active {
+            background: rgba(255, 255, 255, 0.12);
+            color: v.$color-white;
+          }
+        }
+      }
+    }
+
+    .admin-dashboard-logout-button {
+      margin-top: 14px;
+      padding: 11px 14px;
+      border-radius: v.$radius-md;
+      background: rgba(220, 38, 38, 0.15);
+      color: #FCA5A5;
+      border: none;
+      cursor: pointer;
+      font-family: v.$font-main;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .admin-dashboard-content-container {
+    flex: 1;
+    padding: 24px;
+    overflow-x: hidden;
+
+    .admin-dashboard-content-header {
+      margin-bottom: 25px;
+
+      .admin-dashboard-content-title {
+        font-size: 18px;
+        color: v.$color-secondary;
+      }
+    }
+
+    .admin-dashboard-content {
+      .admin-dashboard-management-content {
+        background: v.$color-white;
+        border-radius: v.$radius-lg;
+        padding: 22px 26px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+        .admin-dashboard-management-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 18px;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          .admin-dashboard-management-title {
+            font-size: 16px;
+            color: v.$color-secondary;
+          }
+
+          .admin-dashboard-management-header-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &.admin-dashboard-reregistration-management-header-filter-bar {
+              select {
+                width: 170px;
+                padding: 9px 12px;
+                border: 1.5px solid #E5E7EB;
+                outline: none;
+                border-radius: v.$radius-md;
+                font-family: v.$font-main;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        .admin-dashboard-student-management-filter-bar {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 10px;
+          margin-bottom: 20px;
+
+          input,
+          select {
+            max-width: 170px;
+            width: 100%;
+            padding: 9px 12px;
+            border: 1.5px solid #E5E7EB;
+            outline: none;
+            border-radius: v.$radius-md;
+            font-family: v.$font-main;
+            font-size: 13px;
+          }
+        }
+
+        .admin-dashboard-management-table-container {
+          &.hide-table-container {
+            display: none;
+          }
+
+          .admin-dashboard-management-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            .admin-dashboard-management-table-header,
+            .admin-dashboard-management-table-data {
+              text-align: left;
+              padding: 10px 12px;
+              font-size: 12.5px;
+            }
+
+            .admin-dashboard-management-table-header {
+              background: #F9FAFB;
+              color: v.$color-muted;
+              font-weight: 600;
+              white-space: nowrap;
+            }
+
+            .admin-dashboard-management-table-data {
+              border-bottom: 1px solid #F3F4F6;
+            }
+
+            .admin-dashboard-management-table-body {
+              padding: 12px;
+
+              .admin-dashboard-management-table-row {
+                &:hover {
+                  background: #FAFAFA;
+                }
+
+                .admin-dashboard-management-actions-container {
+                  display: flex;
+                  gap: 6px;
+                }
+              }
+            }
+          }
+        }
+
+        .admin-dashboard-settings-management-form {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          font-family: v.$font-main;
+
+          .form-group {
+            label {
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              font-size: 13px;
+            }
+
+            input {
+              width: 100%;
+              padding: 0.95rem;
+              border-radius: v.$radius-md;
+              font-size: 13px;
+              outline: none;
+              border: 1px solid v.$color-muted;
+              transition: border-color 0.3s;
+
+              &:focus {
+                border-color: v.$color-secondary;
+              }
+            }
+
+            .error-message {
+              color: v.$color-danger;
+              font-size: 12px;
+              margin-top: 5px;
+              display: block;
+              height: 15px;
+            }
+          }
+
+          .settings-submit-button {
+            @include m.applyLoadingAnimationConfig(v.$color-secondary, v.$color-primary);
+            grid-column: 1 / 3;
+            padding: 1rem;
+            font-size: 14px;
+          }
+        }
+
+        .admin-dashboard-school-settings-management-form {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          font-family: v.$font-main;
+
+          .form-group {
+            label {
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+              font-size: 13px;
+            }
+
+            input {
+              width: 100%;
+              padding: 0.95rem;
+              border-radius: v.$radius-md;
+              font-size: 13px;
+              outline: none;
+              border: 1px solid v.$color-muted;
+              transition: border-color 0.3s;
+
+              &:focus {
+                border-color: v.$color-secondary;
+              }
+            }
+
+            .error-message {
+              color: v.$color-danger;
+              font-size: 12px;
+              margin-top: 5px;
+              display: block;
+              height: 15px;
+            }
+          }
+
+          .school-settings-submit-button {
+            @include m.applyLoadingAnimationConfig(v.$color-secondary, v.$color-primary);
+            grid-column: 1 / 3;
+            padding: 1rem;
+            font-size: 14px;
+          }
+        }
+
+        .admin-empty-content {
+          text-align: center;
+          padding: 30px;
+          color: v.$color-muted;
+          font-size: 13px;
+        }
+
+      }
+    }
+  }
+}
+
+.admin-dashboard-student-modal-overlay {
+  .admin-dashboard-student-modal {
+    .admin-dashboard-student-modal-form {
+      .admin-dashboard-modal-schedule-deletion {
+        margin-bottom: 1.5rem;
+
+        .admin-dashboard-modal-schedule-deletion-title {
+          font-size: 0.8rem;
+          margin-bottom: 5px;
+        }
+
+        .admin-dashboard-modal-rejected-date,
+        .admin-dashboard-modal-deletion-date {
+          display: block;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

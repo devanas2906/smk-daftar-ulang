@@ -1,0 +1,38 @@
+@use '../../../common/scss/_variabels.scss' as v;
+
+.login-component-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .login-component-modal {
+        background: v.$color-white;
+        border-radius: v.$radius-lg;
+        padding: 32px;
+        width: 100%;
+        max-width: 400px;
+
+        .login-component-modal-header {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 1.2rem;
+
+            .login-component-modal-title {
+                grid-column: 1 / 4;
+                color: v.$color-secondary;
+                font-size: 16px;
+            }
+
+            .login-component-modal-subtitle {
+                grid-column: 1 / 5;
+                color: v.$color-muted;
+                font-size: 13px;
+            }
+        }
+    }
+}

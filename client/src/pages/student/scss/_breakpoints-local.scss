@@ -1,0 +1,39 @@
+@media screen and (max-width: 778px) {
+    .student-dashboard {
+        .student-dashboard-content-container {
+            .student-dashboard-profile-summary {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .student-dashboard-content {
+                .student-dashboard-management-content {
+                    .student-dashboard-management-table-container {
+                        .student-dashboard-management-table {
+                            .student-dashboard-management-table-body {
+                                .student-dashboard-management-table-row {
+                                    .student-dashboard-management-table-description-data {
+                                        max-width: 100%;
+
+                                        .student-panel-description {
+                                            max-width: 225px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .student-dashboard-settings-management-form {
+                        grid-template-columns: 1fr;
+
+                        .settings-submit-button {
+                            grid-column: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

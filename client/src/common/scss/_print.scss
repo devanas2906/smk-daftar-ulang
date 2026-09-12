@@ -1,0 +1,140 @@
+@use '../../common/scss/_variabels.scss' as v;
+
+.print-document {
+    display: none;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .print-document,
+    .print-document * {
+        visibility: visible;
+    }
+
+    .print-document {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: v.$font-main;
+        color: #1F2937;
+
+        .print-document-header {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
+            gap: 7pt 11pt;
+            border-bottom: 0.5px solid #1E3A8A;
+            padding-bottom: 7pt;
+            margin-bottom: 10pt;
+
+            .print-document-logo {
+                grid-column: 1 / 2;
+                width: 100%;
+                height: auto;
+            }
+
+            .print-document-title {
+                grid-column: 2 / 6;
+                font-size: 9pt;
+                white-space: nowrap;
+                color: #1E3A8A;
+            }
+
+            .print-document-contact-container {
+                grid-column: 1 / 6;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                align-items: center;
+                gap: 3pt 8pt;
+                font-size: 5pt;
+
+                .print-document-contact-item {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 3pt;
+
+                    &.print-document-contact-address-item {
+                        grid-column: 1 / 5;
+                    }
+
+                }
+            }
+        }
+
+        .print-document-receipt-title {
+            text-align: center;
+            font-size: 6.5pt;
+            color: #6B7280;
+            margin-bottom: 3pt;
+        }
+
+        .print-document-introduction-text {
+            font-size: 6pt;
+            margin-bottom: 10pt;
+        }
+
+        .print-document-data-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5pt;
+            margin-bottom: 15pt;
+            font-size: 6pt;
+
+            .print-document-data-item {
+                display: flex;
+                column-gap: 3pt;
+
+                .print-document-data-value {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .print-document-declaration {
+            font-size: 6pt;
+            line-height: 1.5;
+            margin-bottom: 15pt;
+        }
+
+        .print-document-signature-approve-time {
+            font-size: 6pt;
+            width: max-content;
+            margin-left: auto;
+            margin-bottom: 7pt;
+        }
+
+        .print-document-signature-area {
+            font-size: 6pt;
+            break-inside: avoid;
+
+            .print-document-signature-area-container {
+                display: flex;
+                justify-content: space-between;
+
+                .print-document-signature-area-item {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 3pt;
+
+                    .print-document-signature-area-label {
+                        height: 45pt;
+                        margin: 3pt 0;
+                        border-bottom: 0.5px solid #1E3A8A;
+                    }
+                }
+            }
+        }
+
+    }
+}

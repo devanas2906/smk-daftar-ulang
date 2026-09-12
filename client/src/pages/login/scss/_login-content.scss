@@ -1,0 +1,95 @@
+@use '../../../common/scss/_variabels.scss' as v;
+
+.login-background {
+  .login-content {
+    .login-form {
+      .forgot-password-button {
+        display: block;
+        border: none;
+        outline: none;
+        margin-left: auto;
+        margin-bottom: 1rem;
+        background: transparent;
+        font-size: 0.8rem;
+        font-family: v.$font-main;
+        color: v.$color-text;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.forgot-password-modal-overlay {
+  .forgot-password-modal {
+    .forgot-password-header {
+      .forgot-password-close-button {
+        grid-column: 4 / 5;
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        text-align: end;
+        background: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .forgot-password-otp-verification-modal {
+    .forgot-password-otp-verification-form {
+      .forgot-password-otp-verification-input-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 30px;
+
+        .forgot-password-otp-verification-input {
+          width: 45px;
+          height: 45px;
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          border: 2px solid v.$color-text;
+          border-radius: 12px;
+          outline: none;
+          transition: all 0.3s ease;
+
+          &:focus {
+            border-color: v.$color-primary;
+          }
+        }
+      }
+    }
+
+    .forgot-password-resend-otp {
+      margin-top: 1rem;
+
+      .forgot-password-resend-otp-title,
+      .forgot-password-resend-otp-button,
+      .forgot-password-resend-otp-timer {
+        font-size: 0.8rem;
+      }
+
+      .forgot-password-resend-otp-button,
+      .forgot-password-resend-otp-timer {
+        font-weight: bold;
+        color: v.$color-secondary;
+      }
+
+      .forgot-password-resend-otp-button {
+        cursor: pointer;
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .forgot-password-resend-otp-timer {
+        display: none;
+
+        &.show {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

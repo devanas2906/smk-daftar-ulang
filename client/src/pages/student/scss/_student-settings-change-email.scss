@@ -1,0 +1,108 @@
+@use '../../../common/scss/_variabels.scss' as v;
+
+.settings-change-email-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .settings-change-email-modal {
+        background: v.$color-white;
+        border-radius: v.$radius-lg;
+        padding: 32px;
+        width: 100%;
+        max-width: 400px;
+
+        .settings-change-email-modal-header {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 1.2rem;
+
+            .settings-change-email-modal-title {
+                grid-column: 1 / 4;
+                color: v.$color-secondary;
+                font-size: 16px;
+            }
+
+            .settings-change-email-close-button {
+                grid-column: 4 / 5;
+                border: none;
+                outline: none;
+                font-size: 1.2rem;
+                text-align: end;
+                background: transparent;
+                cursor: pointer;
+
+            }
+
+            .settings-change-email-modal-subtitle {
+                grid-column: 1 / 5;
+                color: v.$color-muted;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .change-email-otp-verification-modal {
+        .change-email-otp-verification-form {
+            .change-email-otp-verification-input-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-bottom: 30px;
+
+                .change-email-otp-verification-input {
+                    width: 45px;
+                    height: 45px;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border: 2px solid v.$color-text;
+                    border-radius: 12px;
+                    outline: none;
+                    transition: all 0.3s ease;
+
+                    &:focus {
+                        border-color: v.$color-primary;
+                    }
+                }
+            }
+        }
+
+        .change-email-resend-otp {
+            margin-top: 1rem;
+
+            .change-email-resend-otp-title,
+            .change-email-resend-otp-button,
+            .change-email-resend-otp-timer {
+                font-size: 0.8rem;
+            }
+
+            .change-email-resend-otp-button,
+            .change-email-resend-otp-timer {
+                font-weight: bold;
+                color: v.$color-secondary;
+            }
+
+            .change-email-resend-otp-button {
+                cursor: pointer;
+
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .change-email-resend-otp-timer {
+                display: none;
+
+                &.show {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

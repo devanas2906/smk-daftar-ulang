@@ -1,0 +1,40 @@
+@keyframes loader {
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+@mixin applyLoadingAnimationConfig($spinner-color, $loading-background) {
+    &.apply-metadata {
+        position: relative;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    &.apply-loading::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        translate: -50% -50%;
+        width: 8px;
+        height: 8px;
+        border: 3px solid;
+        background-color: transparent;
+        border-radius: 50%;
+        color: $spinner-color;
+        border-top-color: transparent;
+        -webkit-animation: loader 1.2s linear infinite;
+        animation: loader 1.2s linear infinite;
+    }
+
+    &.apply-loading-background::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background-color: $loading-background;
+    }
+}

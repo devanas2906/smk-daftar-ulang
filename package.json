@@ -1,0 +1,51 @@
+{
+  "name": "smk-daftar-ulang",
+  "version": "1.0.0",
+  "description": "Sistem Daftar Ulang Sekolah Swasta - Monorepo",
+  "private": true,
+  "main": "server/server.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch:client": "webpack --mode development --watch",
+    "watch:server": "nodemon server/server.js",
+    "dev": "concurrently -k -n CLIENT,SERVER -c yellow,blue \"npm:watch:client\" \"npm:watch:server\"",
+    "start": "npm run build && node server/server.js",
+    "seed": "node server/config/seed.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "@upstash/redis": "^1.38.3",
+    "argon2": "^0.41.1",
+    "cloudinary": "^2.5.1",
+    "deep-email-validator": "^0.1.27",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^4.6.0",
+    "otp-generator": "^4.0.1",
+    "resend": "^6.25.0",
+    "sweetalert2": "^11.14.5",
+    "swiper": "^14.0.6",
+    "validator": "^13.15.35"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^9.1.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "nodemon": "^3.1.7",
+    "sass": "^1.81.0",
+    "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

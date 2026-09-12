@@ -1,0 +1,134 @@
+@use '../../../common/scss/_variabels.scss' as v;
+
+.register-background {
+    .register-content {
+        .register-form {
+            .register-step-label {
+                display: block;
+                margin-bottom: 1rem;
+                text-align: center;
+                font-size: 0.8rem;
+                color: v.$color-muted;
+            }
+
+            .register-input-group-container {
+                margin-bottom: 1rem;
+
+                .register-input-group-wrapper {
+                    .register-input-group-item {
+                        height: 285px;
+                        overflow-y: scroll;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        .register-input-group-container-item-label {
+                            display: block;
+                            font-size: 0.8rem;
+                            font-weight: 500;
+                            color: v.$color-text;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+
+            .register-input-group-control-buttons {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                column-gap: 10px;
+
+                .register-input-group-control-button {
+                    font-size: 0.8rem;
+                    cursor: pointer;
+
+                    &.register-input-group-control-previous-button {
+                        display: none;
+
+                        &.show {
+                            display: block;
+                        }
+                    }
+
+                    &.register-input-group-control-next-button {
+                        &.hide {
+                            display: none;
+                        }
+                    }
+                }
+
+
+                .register-submit-button {
+                    display: none;
+
+                    &.show {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.register-otp-verification-background {
+    .register-otp-verification-content {
+        .register-otp-verification-form {
+            .register-otp-verification-input-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-bottom: 30px;
+
+                .register-otp-verification-input {
+                    width: 50px;
+                    height: 50px;
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: bold;
+                    border: 2px solid v.$color-text;
+                    border-radius: 12px;
+                    outline: none;
+                    transition: all 0.3s ease;
+
+                    &:focus {
+                        border-color: v.$color-primary;
+                    }
+                }
+            }
+        }
+
+        .register-resend-otp {
+            margin-top: 1rem;
+
+            .register-resend-otp-title,
+            .register-resend-otp-button,
+            .register-resend-otp-timer {
+                font-size: 0.8rem;
+            }
+
+            .register-resend-otp-button,
+            .register-resend-otp-timer {
+                font-weight: bold;
+                color: v.$color-secondary;
+            }
+
+            .register-resend-otp-button {
+                cursor: pointer;
+
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .register-resend-otp-timer {
+                display: none;
+
+                &.show {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

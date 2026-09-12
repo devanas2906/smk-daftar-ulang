@@ -1,0 +1,34 @@
+@media screen and (max-width: 778px) {
+    .admin-dashboard {
+        .admin-dashboard-content-container {
+            .admin-dashboard-content {
+                .admin-dashboard-management-content {
+                    .admin-dashboard-student-management-filter-bar {
+                        grid-template-columns: 1fr;
+                        margin-bottom: 2rem;
+
+                        input,
+                        select {
+                            max-width: 100%;
+                        }
+
+                        .student-management-apply-filter-button {
+                            padding: 0.8rem;
+                        }
+                    }
+
+                    .admin-dashboard-settings-management-form,
+                    .admin-dashboard-school-settings-management-form {
+                        grid-template-columns: 1fr;
+
+                        .settings-submit-button,
+                        .school-settings-submit-button {
+                            grid-column: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,1 @@
+export const masterDataPerPagination = 5;

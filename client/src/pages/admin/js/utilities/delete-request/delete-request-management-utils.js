@@ -1,0 +1,1 @@
+export const deleteRequestTableRowPrivateData = new WeakMap();

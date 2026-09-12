@@ -1,0 +1,323 @@
+@use './_variabels.scss' as v;
+@use './_mixin.scss' as m;
+
+// button class components
+.button-component {
+    padding: 10px 18px;
+    border-radius: v.$radius-md;
+    border: none;
+    font-family: v.$font-main;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.15s;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+.button-component-primary {
+    background: linear-gradient(135deg, v.$color-primary, v.$color-primary-dark);
+    color: v.$color-secondary;
+}
+
+.button-component-outline {
+    background: transparent;
+    border: 1.5px solid v.$color-secondary-light;
+    color: v.$color-secondary;
+}
+
+.button-component-danger {
+    background: #FEE2E2;
+    color: v.$color-danger;
+}
+
+.button-component-revision {
+    background: #e8e7e7;
+    color: v.$color-muted;
+}
+
+.button-component-success {
+    background: #DCFCE7;
+    color: v.$color-success;
+}
+
+.button-component-icon {
+    padding: 8px 10px;
+}
+
+.button-component-sm {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+// badge class components
+.badge-component {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-component-draft {
+    background: #FEF3C7;
+    color: v.$color-muted;
+}
+
+.badge-component-pending-verification {
+    background: #f9e9a7;
+    color: v.$color-warning;
+}
+
+.badge-component-revision {
+    background: #ffe98f;
+    color: v.$color-warning;
+}
+
+.badge-component-pending {
+    background: #FEF3C7;
+    color: v.$color-warning;
+}
+
+.badge-component-approved {
+    background: #DCFCE7;
+    color: v.$color-success;
+}
+
+.badge-component-rejected {
+    background: #FEE2E2;
+    color: v.$color-danger;
+}
+
+.badge-component-active {
+    background: #DCFCE7;
+    color: v.$color-success;
+}
+
+.badge-component-non-active {
+    background: #F3F4F6;
+    color: v.$color-muted;
+}
+
+// sidebar class components
+.dashboard-sidebar-toggle-component {
+    display: none;
+    font-size: 1.5rem;
+    color: v.$color-secondary;
+    cursor: pointer;
+}
+
+// modal class component
+.modal-overlay-component {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 16px;
+}
+
+.modal-box-component {
+    background: v.$color-white;
+    border-radius: v.$radius-lg;
+    padding: 28px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &.modal-wide-component {
+        max-width: 1000px;
+    }
+
+    h2 {
+        color: v.$color-secondary;
+        font-size: 17px;
+        margin-bottom: 18px;
+    }
+
+    .document-preview-cotainer-component {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 20px;
+
+        .document-preview-item {
+            text-align: center;
+
+            .document-preview-label {
+                display: block;
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 6px;
+                color: v.$color-secondary;
+            }
+
+            .document-preview-placeholder {
+                display: grid;
+                place-content: center;
+                width: 100%;
+                height: 220px;
+                border: 0.5px dashed v.$color-muted;
+                border-radius: v.$radius-md;
+                cursor: pointer;
+
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .document-preview-input {
+                display: none;
+            }
+
+            embed,
+            iframe {
+                width: 100%;
+                height: 220px;
+                border: 1px solid #E5E7EB;
+                border-radius: 8px;
+            }
+
+            .document-preview-reset-file-button {
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: v.$color-text;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 11px 13px;
+        border: 1.5px solid #E5E7EB;
+        border-radius: v.$radius-md;
+        outline: none;
+        margin-bottom: 16px;
+        font-family: v.$font-main;
+        font-size: 13px;
+    }
+
+    .document-note {
+        font-family: v.$font-main;
+        font-size: 13px;
+        color: v.$color-muted;
+        max-width: 500px;
+    }
+
+    .modal-actions-component {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        &.justify-content-flex-start {
+            justify-content: flex-start;
+        }
+
+        .save-student-modal-button,
+        .print-document-button,
+        .admin-dashboard-reregistration-management-action-button,
+        .save-panel-reregistration-modal-button {
+            @include m.applyLoadingAnimationConfig(v.$color-secondary, v.$color-primary);
+        }
+    }
+}
+
+// pagination class components
+.pagination-component {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    margin-top: 3rem;
+
+    &.hide-pagination-container {
+        display: none;
+    }
+
+    &.pagination-hidden {
+        display: none;
+    }
+
+    .pagination-info-component {
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+        font-size: 0.85rem;
+    }
+
+    .pagination-controls-component {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        .pagination-button-component {
+            display: grid;
+            place-content: center;
+            width: 32px;
+            height: 32px;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            color: v.$color-secondary;
+            background-color: v.$color-primary;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .pagination-container-component {
+            width: 190px;
+
+            .pagination-pages-component {
+                .pagination-page-component {
+                    display: grid;
+                    place-content: center;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 3px;
+                    border: 0.5px solid v.$color-text;
+                    outline: none;
+                    font-size: 0.85rem;
+                    background-color: transparent;
+                    cursor: pointer;
+
+                    &.active-page {
+                        border: 0.5px solid v.$color-primary;
+                        color: v.$color-secondary;
+                        background: v.$color-primary;
+                    }
+                }
+            }
+        }
+    }
+}
