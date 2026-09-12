@@ -88,7 +88,10 @@ module.exports = (_, argv) => {
       minimizer: [
         '...',
         new CssMinimizerPlugin()
-      ]
+      ],
+      splitChunks: {
+        chunks: 'all'
+      },
     }
   };
 };
